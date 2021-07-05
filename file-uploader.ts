@@ -10,13 +10,12 @@ const glob = require("glob");
 getBz()
     .then(writeSite)
 
-console.log(process.env['INPUT_UUID'])
 function writeSite(bz: BluzelleSdk) {
     readFiles()
         .then(files => Promise.all(files.map(file =>
             bz.db.tx.Upsert({
                 creator: bz.db.address,
-                uuid: process.env['INPUT_UUID'],
+                uuid: process.env['INPUT_UUID'] || 'my-sitex',
                 key: file.filename,
                 value: file.data,
                 lease: { days: 1 } as Lease,
