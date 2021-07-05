@@ -22,7 +22,7 @@ function writeSite(bz: BluzelleSdk) {
                 metadata: new Uint8Array()
             })
         )))
-        .then(() => console.log('DONE!!'))
+        .then(() => console.log('Successfully uploaded files to https://client.sentry.testnet.private.bluzelle.com:1317/crud/raw/'+(process.env['INPUT_UUID'] || 'my-sitex')+'/[your_file]'))
 }
 
 interface File {
