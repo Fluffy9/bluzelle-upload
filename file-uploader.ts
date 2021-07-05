@@ -10,7 +10,7 @@ const glob = require("glob");
 getBz()
     .then(writeSite)
 
-
+console.log(process.env['INPUT_UUID'])
 function writeSite(bz: BluzelleSdk) {
     readFiles()
         .then(files => Promise.all(files.map(file =>
