@@ -16,7 +16,7 @@ function writeSite(bz: BluzelleSdk) {
         .then(files => Promise.all(files.map(file =>
             bz.db.tx.Upsert({
                 creator: bz.db.address,
-                uuid: 'my-sitex',
+                uuid: process.env['INPUT_UUID'],
                 key: file.filename,
                 value: file.data,
                 lease: { days: 1 } as Lease,
